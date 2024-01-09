@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="intro" class="wrapper style1 fullscreen fade-up">
+    <div class="inner">
+        <form method="post" action="/login">
+            <input name="email" placeholder="email">
+            <input name="password" type="password" placeholder="password">
+            <button type="submit">Войти</button>
+        
+        </form>
+    </div>
+  </section>
+{% endblock %}

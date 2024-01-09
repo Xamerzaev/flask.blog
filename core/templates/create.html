@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="intro" class="wrapper style1 fullscreen fade-up">
+    <div class="inner">
+        <form method="POST" action="/add_post">
+            {{ form.csrf_token }}
+            {{ form.title.label }} {{ form.title }}
+            {{ form.content.label }} {{ form.content }}
+        
+            <input type="submit" value="Создать пост">
+        </form>
+    </div>
+  </section>
+{% endblock %}

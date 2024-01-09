@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="intro" class="wrapper style1 fullscreen fade-up">
+  <div class="inner">
+    <h1>Подробнее о посте</h1>
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">{{ post.content}}</p>
+    </div>
+    {% for comment in comments %}
+    <ul><li>
+      {{comment.title}}
+    </li></ul>
+    {% endfor %}
+    
+    {% if current_user.is_authenticated %}
+    <form method="post">
+    <input name="title" placeholder="Введите комментарий">
+    <button type="submit">Написать</button>
+    </form>
+    {% else %}
+    <p>Для того чтобы ввести комментарий войдите в учет запись</p>
+    {% endif %}
+  </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Flask Blog</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css') }}" />
+    <link type="image/png" sizes="16x16" rel="icon" href="static/icons8-favicon-16.png">
+		<noscript><link rel="stylesheet" href="{{url_for('static', filename='css/noscript.css') }}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="{{ url_for('index') }}">Главная</a></li>
+              {% if current_user.is_authenticated %}
+							<li><a href="{{ url_for('new_post') }}">Создать пост</a></li>
+							<li><a href="{{ url_for('logout') }}">Выйти</a></li>
+              {% else %}
+							<li><a href="{{ url_for('login') }}">Войти</a></li>
+							<li><a href="{{ url_for('reg') }}">Регистрация</a></li>
+              {% endif %}
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+
+      {% block content %}
+      {% endblock %}
+
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{{url_for('static', filename='js/jquery.min.js') }}"></script>
+			<script src="{{url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{url_for('static', filename='js/browser.min.js') }}"></script>
+			<script src="{{url_for('static', filename='js/breakpoints.min.js') }}"></script>
+			<script src="{{url_for('static', filename='js/util.js') }}"></script>
+			<script src="{{url_for('static', filename='js/main.js') }}"></script>
+
+	</body>
+</html>
