@@ -1,5 +1,4 @@
-﻿alembic==1.13.1
-black==23.12.1
+alembic==1.5.7
 blinker==1.7.0
 click==8.1.7
 colorama==0.4.6
